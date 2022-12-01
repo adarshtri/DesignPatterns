@@ -1,3 +1,7 @@
+import patterns.decorator.Mozzarella
+import patterns.decorator.Pizza
+import patterns.decorator.ThinCrust
+import patterns.decorator.Tomato
 import patterns.observer.ContentSubject
 import patterns.observer.MobileDisplay
 import patterns.observer.TVDisplay
@@ -9,6 +13,7 @@ import patterns.strategy.SwordBehavior
 fun main(args: Array<String>) {
     testStrategy()
     testObserver()
+    testDecorator()
 }
 
 fun testObserver(){
@@ -31,4 +36,12 @@ fun testStrategy(){
     queen.fight()
     queen.setBehavior(BowAndArrowBehavior())
     queen.fight()
+}
+
+fun testDecorator(){
+    var pizza: Pizza = ThinCrust()
+    pizza = Mozzarella(pizza)
+    pizza = Tomato(pizza)
+    println(pizza.getDescription())
+    println(pizza.getCost())
 }
