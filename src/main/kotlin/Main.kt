@@ -1,3 +1,7 @@
+import patterns.abstractfactory.furniture.chair.PlasticChair
+import patterns.abstractfactory.furniture.set.Wooden
+import patterns.abstractfactory.furniture.table.WoodenTable
+import patterns.abstractfactory.materials.Mixed
 import patterns.decorator.Mozzarella
 import patterns.decorator.Pizza
 import patterns.decorator.ThinCrust
@@ -14,6 +18,7 @@ fun main(args: Array<String>) {
     testStrategy()
     testObserver()
     testDecorator()
+    testAbstractFactory()
 }
 
 fun testObserver(){
@@ -44,4 +49,16 @@ fun testDecorator(){
     pizza = Tomato(pizza)
     println(pizza.getDescription())
     println(pizza.getCost())
+}
+
+fun testAbstractFactory(){
+    println("Getting wooden furniture set.")
+    val woodenFurnitureSet = Wooden()
+    println(woodenFurnitureSet.getDescription())
+    println("Set cost: ${woodenFurnitureSet.getFurnitureSetCost()}")
+
+    println("Getting mixed furniture set.")
+    val mixedFurnitureSet = Mixed(PlasticChair(), WoodenTable())
+    println(mixedFurnitureSet.getDescription())
+    println("Set cost: ${mixedFurnitureSet.getFurnitureSetCost()}")
 }
