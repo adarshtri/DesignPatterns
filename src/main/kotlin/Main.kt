@@ -9,6 +9,7 @@ import patterns.decorator.Tomato
 import patterns.observer.ContentSubject
 import patterns.observer.MobileDisplay
 import patterns.observer.TVDisplay
+import patterns.singleton.CashDeposit
 import patterns.strategy.BowAndArrowBehavior
 import patterns.strategy.King
 import patterns.strategy.Queen
@@ -19,6 +20,7 @@ fun main(args: Array<String>) {
     testObserver()
     testDecorator()
     testAbstractFactory()
+    testSingleton()
 }
 
 fun testObserver(){
@@ -61,4 +63,24 @@ fun testAbstractFactory(){
     val mixedFurnitureSet = Mixed(PlasticChair(), WoodenTable())
     println(mixedFurnitureSet.getDescription())
     println("Set cost: ${mixedFurnitureSet.getFurnitureSetCost()}")
+}
+
+fun testSingleton(){
+
+    fun getCashDepositorInstanceInfo(): String{
+        return CashDeposit.getName()
+    }
+
+    println(getCashDepositorInstanceInfo())
+    println(CashDeposit.getInvocationTime())
+    println(Thread.sleep(5000))
+    println(CashDeposit.getInvocationTime())
+    println(Thread.sleep(5000))
+    println(CashDeposit.getInvocationTime())
+    println(Thread.sleep(5000))
+    println(getCashDepositorInstanceInfo())
+    println(CashDeposit.getInvocationTime())
+    println(Thread.sleep(5000))
+    println(CashDeposit.getInvocationTime())
+
 }
