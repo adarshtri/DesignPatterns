@@ -73,14 +73,14 @@ fun testSingleton(){
 
     println(getCashDepositorInstanceInfo())
     println(CashDeposit.getInvocationTime())
-    println(Thread.sleep(5000))
+    Thread.sleep(5000)
     println(CashDeposit.getInvocationTime())
-    println(Thread.sleep(5000))
+    Thread.sleep(5000)
     println(CashDeposit.getInvocationTime())
-    println(Thread.sleep(5000))
+    Thread.sleep(5000)
     println(getCashDepositorInstanceInfo())
     println(CashDeposit.getInvocationTime())
-    println(Thread.sleep(5000))
+    Thread.sleep(5000)
     println(CashDeposit.getInvocationTime())
 
 }
